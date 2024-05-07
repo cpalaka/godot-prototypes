@@ -9,8 +9,8 @@ const END_SPEED := 700;
 var click_held: float;
 var click_unheld: float;
 var time_to_full_speed = 2.0;
-var time_to_stop = 10.0;
-
+var time_to_stop = 2.0;
+var recent_max_velocity: Vector2;
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,13 +26,15 @@ func _process(delta):
 		click_held += delta
 		click_unheld = 0.0;
 		velocity = Vector2(lerp(START_SPEED, END_SPEED, click_held/time_to_full_speed), 0).rotated(rotation);
+		recent_max_velocity = velocity;
 	else:
+
 		click_held = 0.0;
 		click_unheld += delta;
 		# print(click_unheld/time_to_stop)
-		# velocity = lerp(velocity, Vector2(0,0), click_unheld/time_to_stop);
-		velocity = lerp(velocity, Vector2(0,0), 0.9);
-	# print(velocity)
+		velocity = lerp(recent_max_velocity, Vector2(0,0), click_unheld/time_to_stop);
+		# velocity = lerp(recent_max_velocity, Vector2(0,0), 0.9);
+	print(recent_max_velocity)
 	move_and_slide()
 
 # func _input(event):

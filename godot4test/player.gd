@@ -9,7 +9,7 @@ const END_SPEED := 700;
 var click_held: float;
 var click_unheld: float;
 var time_to_full_speed = 2.0;
-var time_to_stop = 2.0;
+var time_to_stop = 1.0;
 var recent_max_velocity: Vector2;
 
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd3qd0gccof3p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_scnq2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4tyj"]
+size = Vector3(92.2743, 1, 49.3853)
+
+[node name="Game" type="Node3D"]
+transform = Transform3D(0.619037, 0.751982, -0.226531, -0.567738, 0.627781, 0.532507, 0.542648, -0.201031, 0.815549, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_scnq2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.623656, -0.564567, 0.540693, 0.748757, 0.630161, -0.205651, -0.224627, 0.533077, 0.815738, 0.287452, 0.198367, 0.0699422)
+shape = SubResource("BoxShape3D_p4tyj")
